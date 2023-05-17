@@ -8,14 +8,14 @@ import { Item } from '../../../../models/item.model';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
 })
 export class ItemComponent {
-
   @Input() item!: Item;
   @Output() newItemSelectedEvent = new EventEmitter<number>();
 
   onSelectItem(id: number) {
     console.log(`kliknięto w produkt z id: ${id}`);
+    this.newItemSelectedEvent.next(id);
   }
 }
